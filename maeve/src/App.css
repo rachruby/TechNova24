@@ -1,39 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@layer base {
+  @font-face {
+    font-family: 'LibreBodoni';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(./fonts/LibreBodoni-Regular.ttf) format('truetype');
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@layer base {
+  @font-face {
+    font-family: 'LibreBodoni';
+    font-style: oblique;
+    font-weight: 700;
+    font-display: swap;
+    src: url(./fonts/LibreBodoni-Bold.ttf) format('truetype');
   }
 }
+
+@layer base {
+  @font-face {
+    font-family: 'LibreBodoni';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(./fonts/LibreBodoni-Italic.ttf) format('truetype');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Times';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(./fonts/times.ttf) format('truetype');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Times';
+    font-style: oblique;
+    font-weight: 700;
+    font-display: swap;
+    src: url(./fonts/timesbold.ttf) format('truetype');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Times';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url(./fonts/timesbolditalic.ttf) format('truetype');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Times';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(./fonts/timesitalic.ttf) format('truetype');
+  }
+}
+
+@layer base {
+  html {
+    font-family: "Times", system-ui, sans-serif;
+  }
+}
+
+.pink-button {
+  border: none;
+  background: url('./assets/pinkbutton.png') no-repeat top left;
+}
+
+.blue-button {
+  border: none;
+  background: url('./assets/bluebutton.png') no-repeat top left;
+  padding: 2px 8px;
+}
+
+.hover\:glow:hover {
+  animation: glow 1.5s infinite;
+}
+

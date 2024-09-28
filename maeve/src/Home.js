@@ -1,21 +1,23 @@
 import React from 'react';
+import Navbar from './Navbar.js';
 import { Link } from 'react-router-dom';
-import homeBg from './assets/homebg.png';
+import clothes from './assets/clothes.png';
 import maeveLogo from './assets/maevelogo.png';
 
 
 function Home() {
   return (
-    <div className="w-screen h-screen bg-cover bg-center flex justify-center items-center text-white"
-    style={{ backgroundImage: `url(${homeBg})` }}>
-      <Link to="/Closet">
-      <img 
-          src={maeveLogo} 
-          alt="Clickable" 
-          className="w-64 h-auto cursor-pointer"
-        />
-      </Link>
-    </div>
+      <div>
+          <div className="w-screen h-screen bg-cover bg-center flex justify-end items-center text-white"
+               style={{backgroundImage: `url(${clothes})`}}>
+              <div className="flex flex-col">
+                  <img src={maeveLogo} className="animate-fade-left w-96 h-auto mr-32 -mt-32"/>
+              <Navbar/>
+              </div>
+          </div>
+      </div>
+
+
   );
 }
 
