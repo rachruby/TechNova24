@@ -9,7 +9,6 @@ function App() {
     return (
       <Router>
         <div>
-          <Navbar />
           <Routes>
             {/* Define routes with path and component */}
             <Route path="/" element={<Home />} />
