@@ -9,7 +9,7 @@ function Home() {
   return (
       <div>
           <div className="w-screen h-screen bg-cover bg-center flex justify-end items-center text-white"
-               style={{backgroundImage: `url(${clothes})`}}>
+               style={{backgroundImage: url(${clothes})}}>
               <div className="flex flex-col">
                   <img src={maeveLogo} className="animate-fade-left w-96 h-auto mr-32 -mt-32"/>
               <Navbar/>
