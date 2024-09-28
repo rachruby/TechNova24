@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Closet.css';
 
 function Closet() {
   var FileObj = [];
   var FileArray = [];
   const [File, setFile] = useState([]);
+
+  
   function handleChange(e) {
     FileObj.push(e.target.files);
     FileArray.push(URL.createObjectURL(FileObj[0][0]));
@@ -19,7 +21,7 @@ function Closet() {
         <button> + </button>
         <input type="file" onChange={handleChange} />
         {File.map((url, index) => (
-          <img class="box-border h-24 w-24 p-4 border-2" src={url} alt="..." />
+          <img key={index} class="box-border h-24 w-24 p-4 border-2" src={url} alt="uploaded item" />
         ))}
         
 
