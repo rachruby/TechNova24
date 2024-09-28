@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
+import Closet from './Closet';
 import Navbar from './Navbar';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
           <Routes>
             {/* Define routes with path and component */}
             <Route path="/" element={<Home />} />
-            {/*<Route path="/about" element={<About />} />
+            <Route path="/closet" element={<Closet />} />
             {/* 404 Not Found Route */}
             {/*<Route path="*" element={<NotFound />} /> */}
           </Routes>
