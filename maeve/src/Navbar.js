@@ -13,7 +13,7 @@ function Navbar() {
                 </li>
 
                 <li className="blue-button my-16 mb-24 transition-transform duration-300 hover:scale-105">
-                    <Link to="/" className="hover:text-plat-blue hover:glow">about maeve</Link>
+                    <Link to="/about" className="hover:text-plat-blue hover:glow">about maeve</Link>
                 </li>
 
                 <li className="text-2xl text-plat-blue">
