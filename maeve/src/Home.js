@@ -1,10 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import homeBg from './assets/homebg.png';
+import maeveLogo from './assets/maevelogo.png';
+
 
 function Home() {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Welcome to the home page.</p>
+    <div className="w-screen h-screen bg-cover bg-center flex justify-center items-center text-white"
+    style={{ backgroundImage: `url(${homeBg})` }}>
+      <Link to="/Closet">
+      <img 
+          src={maeveLogo} 
+          alt="Clickable" 
+          className="w-64 h-auto cursor-pointer"
+        />
+      </Link>
     </div>
   );
 }
