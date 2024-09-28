@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -14,7 +13,7 @@ function App() {
           <Routes>
             {/* Define routes with path and component */}
             <Route path="/" element={<Home />} />
-            <Route path="/closet" element={<Closet />} />
+            <Route path="/Closet" element={<Closet />} />
             {/* 404 Not Found Route */}
             {/*<Route path="*" element={<NotFound />} /> */}
           </Routes>
