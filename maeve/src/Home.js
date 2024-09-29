@@ -8,7 +8,7 @@ import maeveLogo from './assets/maevelogo.png';
 function Home() {
   return (
       <div>
-          <div className="
+          <div className="animate-fade
           bg-[url('./assets/clothes.png')] w-screen h-screen bg-cover bg-center flex justify-end items-center text-white">
               <div className="flex flex-col">
                   <img src={maeveLogo} className="animate-fade-left w-96 h-auto mr-32 -mt-32"/>

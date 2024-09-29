@@ -9,10 +9,16 @@ module.exports = {
       'times': ['Times', 'serif']
     },
     extend: {
+      boxShadow: {
+        'glow': '0 0 25px #FEF9FB',
+        'pink-glow': '0 0 25px #D6CEE0',
+      },
       colors: {
         'plat-white': '#FEF9FB',
         'plat-blue': '#D5DCE8',
-        'plate-pink': '#D6CEE0',
+        'dark-plat-blue': '#ABBACA',
+        'plat-pink': '#D6CEE0',
+        'dark': '#1E1E1E'
       },
       keyframes: {
         glow: {
