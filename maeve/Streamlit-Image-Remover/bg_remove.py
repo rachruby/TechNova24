@@ -4,10 +4,10 @@ import streamlit as st
 from PIL import Image
 from rembg import remove
 
-st.title("Hello Upload!")
+st.title("Get your clothes with transparent background!")
 
 # Upload the file
-image_upload = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+image_upload = st.file_uploader("Upload your clothes image", type=["png", "jpg", "jpeg"])
 
 # Convert the image to BytesIO so we can download it!
 def convert_image(img):
