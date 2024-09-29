@@ -1,14 +1,17 @@
+// src/VideoStream.js
 import React from 'react';
 
-function Try() {
+const VideoStream = () => {
     return (
-        <div className="bg-[url('./assets/empty.png')]
-          w-screen h-screen bg-cover bg-center flex items-center text-white font-times italic animate-fade">
-            <div className="flex flex-row animate-fade-left">
-
-            </div>
+        <div>
+            <h1>Live Video Stream</h1>
+            <img
+                src="http://localhost:5001/video_feed"
+                alt="Streaming video"
+                style={{ width: '100%', height: 'auto' }}
+            />
         </div>
     );
-}
+};
 
-export default Try;
+export default VideoStream;

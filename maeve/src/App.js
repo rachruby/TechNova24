@@ -8,7 +8,6 @@ import About from './About';
 import Navbar from './Navbar';
 import UserInfo from './UserInfo';
 import Try from "./Try"; // Import the UserInfo component
-import Bg_remove from './Bg_remove';
 
 function App() {
     return (
@@ -20,7 +19,6 @@ function App() {
             <Route path="/closet" element={<Closet />} />
             <Route path="/about" element={<About />} />
               <Route path="/try" element={<Try />} />
-              <Route path="/bg_remove" element={<Bg_remove />} />
             {/* 404 Not Found Route */}
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
