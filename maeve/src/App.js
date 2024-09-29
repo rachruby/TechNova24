@@ -6,7 +6,8 @@ import Home from './Home';
 import Closet from './Closet';
 import About from './About';
 import Navbar from './Navbar';
-import UserInfo from './UserInfo'; // Import the UserInfo component
+import UserInfo from './UserInfo';
+import Try from "./Try"; // Import the UserInfo component
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/auth" element={<UserInfo />} /> 
             <Route path="/closet" element={<Closet />} />
             <Route path="/about" element={<About />} />
+              <Route path="/try" element={<Try />} />
             {/* 404 Not Found Route */}
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
