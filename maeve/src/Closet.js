@@ -4,6 +4,7 @@ import shadow from './assets/shadow.png';
 import bow from './assets/bow.png';
 import bigpinkbutton from './assets/bigpinkbutton.png';
 import './Closet.css';
+import { withAuthInfo, useLogoutFunction, useRedirectFunctions } from '@propelauth/react';
 
 function Closet() {
     const categories = ['tops', 'bottoms', 'dresses', 'shoes'];
@@ -16,7 +17,8 @@ function Closet() {
     const [selectedImage, setSelectedImage] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('tops'); // Set "tops" as the default selected category
     const [animate, setAnimate] = useState(false); // State for animation trigger
-
+    const logoutFunction = useLogoutFunction();
+    
     // Handle file input change
     function handleChange(e) {
         const fileObj = e.target.files[0];
@@ -78,6 +80,11 @@ function Closet() {
                 ) : (
                     <p></p>
                 )}
+            </div>
+            
+            {/*logout button*/}
+            <div>
+                <button onClick={() => logoutFunction(true)}>Logout</button>
             </div>
 
             {/* Right Section */}
