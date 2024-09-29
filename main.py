@@ -3,12 +3,17 @@ import cvzone
 import cv2
 from cvzone.PoseModule import PoseDetector
 
+# Function to filter only PNG files and ignore hidden files like .DS_Store
+def is_image_file(filename):
+    return filename.endswith('.png') and not filename.startswith('.')
+
 cap = cv2.VideoCapture(0)
 detector = PoseDetector()
 
 # Folder path for shirts
 shirtFolderPath = "Resources/Shirts"
-listShirts = os.listdir(shirtFolderPath)
+# Filter the list to include only .png files and skip hidden files
+listShirts = [f for f in os.listdir(shirtFolderPath) if is_image_file(f)]
 imagenum = 0
 
 # Button images
@@ -30,12 +35,18 @@ while True:
 
         # Load the shirt image
         shirtPath = os.path.join(shirtFolderPath, listShirts[imagenum])
+
+        # Debugging: Print the image path to verify
+        print(f"Attempting to load image from: {shirtPath}")
+
         imgShirt = cv2.imread(shirtPath, cv2.IMREAD_UNCHANGED)
 
         # Check if the image was successfully loaded
         if imgShirt is None:
-            print("Image not found or unable to load:", listShirts[imagenum])
-            continue
+            print(f"Failed to load image at path: {shirtPath}")
+            continue  # Skip further processing if the image is not found
+        else:
+            print(f"Image loaded successfully: {shirtPath}")
 
         # Resize the shirt image (you can adjust the scaling factors if needed)
         imgShirt = cv2.resize(imgShirt, (0, 0), None, 1, 1)
