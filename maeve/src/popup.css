@@ -10,14 +10,7 @@
     align-items: center;
 }
 
-.popup-inner {
-    position: relative;
-    padding: 32px;
-    width: 100%;
-    max-width: 640px;
-    background-color: aliceblue;
-    color: black;
-}
+
 .popup-inner .submit-btn {
     position: absolute;
     top: 32px;

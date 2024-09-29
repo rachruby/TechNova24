@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import shadow from './assets/shadow.png';
 import bow from './assets/bow.png';
 import bigpinkbutton from './assets/bigpinkbutton.png';
+import deleteicon from './assets/delete.png';
 import './Closet.css';
 import Popup from './popup';
+import { ColorExtractor } from 'react-color-extractor';
 
 function Closet() {
     const categories = ['tops', 'bottoms', 'dresses', 'shoes'];
@@ -17,7 +19,7 @@ function Closet() {
     const [selectedImage, setSelectedImage] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('tops'); // Set "tops" as the default selected category
     const [animate, setAnimate] = useState(false); // State for animation trigger
-
+    const [recentlyUploadedImage, setRecentlyUploadedImage] = useState(null);
     const [buttonPopup, setButtonPopup] = useState(false);
 
     // Handle file input change
@@ -29,6 +31,7 @@ function Closet() {
                 ...prevFiles,
                 [selectedCategory]: [...prevFiles[selectedCategory], fileUrl]
             })); // Add the new file URL to the selected category
+            setRecentlyUploadedImage(fileUrl); // Set recentlyUploadedImage to the new file URL
         }
     }
 
@@ -45,18 +48,31 @@ function Closet() {
 
     // Handle the click on the custom "Add new" button
     function handleAddNewClick() {
-        document.getElementById('fileInput').click(); 
+        document.getElementById('fileInput').click();
         setButtonPopup(true); // Programmatically click the hidden file input
-      }
+    }
 
     // Handle category selection
     function handleCategoryChange(category) {
         setSelectedCategory(category); // Update the selected category
     }
 
+    // Handle deleting the selected image
+    function handleDeleteImage() {
+        if (selectedImage) {
+            setFiles((prevFiles) => {
+                const updatedCategoryFiles = prevFiles[selectedCategory].filter(file => file !== selectedImage);
+                return {
+                    ...prevFiles,
+                    [selectedCategory]: updatedCategoryFiles
+                };
+            });
+            setSelectedImage(null); // Clear selected image
+        }
+    }
+
     return (
-        <div
-            className="bg-[url('./assets/wall.png')] w-screen h-screen bg-cover bg-center flex items-center text-white font-times italic animate-fade">
+        <div className="bg-[url('./assets/wall.png')] w-screen h-screen bg-cover bg-center flex items-center text-white font-times italic animate-fade">
             {/* Back Button */}
             <Link to="/" className="absolute top-4 left-4">
                 <img src={bow} alt="back" className="w-24 h-24 animate-wiggle"/>
@@ -66,6 +82,10 @@ function Closet() {
             <div className="basis-3/6 box-border h-screen p-4 border-4">
                 {selectedImage ? (
                     <div>
+                        {/* Delete Button */}
+                        <button onClick={handleDeleteImage} className="absolute self-end text-white p-4 bg-opacity-50">
+                            <img src={deleteicon} className="absolute w-20 rounded hover:animate-jump cursor-pointer mt-24" alt="delete icon"/>
+                        </button>
                         <div className={`flex flex-col items-center ${animate ? 'animate-fade-down' : ''}`}>
                             <img src={selectedImage} alt="selected" className="my-36 h-96 w-96 p-4"/>
                             <img src={shadow} className="w-64"/>
@@ -120,15 +140,19 @@ function Closet() {
                     >
                         +
                     </div>
-                    <Popup trigger={buttonPopup} setTrigger={setButtonPopup}></Popup></div>
-                
-
+                    <Popup
+                        trigger={buttonPopup}
+                        setTrigger={setButtonPopup}
+                        selectedImage={recentlyUploadedImage} // Pass the most recent upload
+                    />
+                </div>
                 {/* Hidden file input */}
                 <input
                     id="fileInput"
                     type="file"
                     className="hidden"
                     onChange={handleChange}
+                    accept="image/*" // Optional: Accept only image files
                 />
             </div>
         </div>
