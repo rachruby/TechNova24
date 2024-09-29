@@ -5,3 +5,35 @@
 .overflow-y-auto {
     overflow-y: auto;
 }
+
+@keyframes fade-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); /* Start slightly higher */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End in the normal position */
+    }
+}
+
+.animate-fade-down {
+    animation: fade-down 0.3s ease forwards; /* Adjust duration and easing as needed */
+}
+
+@keyframes fade-right {
+    0% {
+        mix-blend-mode: hard-light;
+        opacity: 0;
+        transform: translateX(-20px); /* Start slightly to the right */
+    }
+    100% {
+        mix-blend-mode: hard-light;
+        opacity: 1;
+        transform: translateX(0); /* End in the normal position */
+    }
+}
+
+.animate-fade-right {
+    animation: fade-right 0.3s ease forwards; /* Adjust duration and easing as needed */
+}

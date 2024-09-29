@@ -18,7 +18,7 @@ function About() {
                 </div>
                 <div className="ml-20">
                     <p className="mt-4 text-2xl overflow-auto p-10">
-                        maeve is your AI-powered virtual closet that uses an ai-powered, live camera feed to try clothes
+                        maeve is your virtual closet that uses an ai-powered, live camera feed to try clothes
                         on.
                         upload your clothes and use this digital fitting room!
                         <br/><br/>
