@@ -4,11 +4,11 @@ import streamlit as st
 from PIL import Image
 from rembg import remove
 
-st.set_page_config(layout="wide", page_title="Image Background Remover")
+st.set_page_config(layout="wide", page_title="Remove the Background")
 
-st.header("Remove background from your clothes!")
+st.header("Have a transparent background for your clothes!")
 
-st.sidebar.write("## Upload and download :gear:")
+st.sidebar.write("## Upload old and download new!")
 
 # Create the columns
 col1, col2 = st.columns(2)
@@ -29,13 +29,12 @@ def fix_image(upload):
     fixed = remove(image)
     col2.write("Fixed Image :wrench:")
     col2.image(fixed)
-    st.sidebar.markdown("\\n")
     st.sidebar.download_button(
-        "Download fixed image", convert_image(fixed), "fixed.png", "image/png"
+        "Get fixed image here", convert_image(fixed), "fixed.png", "image/png"
     )
 
 # Create the file uploader
-my_upload = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+my_upload = st.sidebar.file_uploader("Upload image here:", type=["png", "jpg", "jpeg"])
 
 # Fix the image!
 if my_upload is not None:
