@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 function Navbar() {
     return (
         <nav>
@@ -9,7 +10,7 @@ function Navbar() {
             italic font-times text-4xl text-plat-white text-opacity-80 space-y-12">
                 {/* Glow effect on hover with transition */}
                 <li className="pink-button mt-24 mb-16 transition-transform duration-300 hover:scale-105">
-                    <Link to="/closet" className="hover:text-plat-pink hover:glow">visit your closet</Link>
+                    <Link to="/auth" className="hover:text-plat-pink hover:glow">visit your closet</Link>
                 </li>
 
                 <li className="blue-button my-16 mb-24 transition-transform duration-300 hover:scale-105">
