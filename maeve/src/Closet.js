@@ -4,6 +4,7 @@ import shadow from './assets/shadow.png';
 import bow from './assets/bow.png';
 import bigpinkbutton from './assets/bigpinkbutton.png';
 import './Closet.css';
+import Popup from './popup';
 
 function Closet() {
     const categories = ['tops', 'bottoms', 'dresses', 'shoes'];
@@ -16,6 +17,8 @@ function Closet() {
     const [selectedImage, setSelectedImage] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('tops'); // Set "tops" as the default selected category
     const [animate, setAnimate] = useState(false); // State for animation trigger
+
+    const [buttonPopup, setButtonPopup] = useState(false);
 
     // Handle file input change
     function handleChange(e) {
@@ -42,8 +45,9 @@ function Closet() {
 
     // Handle the click on the custom "Add new" button
     function handleAddNewClick() {
-        document.getElementById('fileInput').click(); // Programmatically click the hidden file input
-    }
+        document.getElementById('fileInput').click(); 
+        setButtonPopup(true); // Programmatically click the hidden file input
+      }
 
     // Handle category selection
     function handleCategoryChange(category) {
@@ -116,7 +120,8 @@ function Closet() {
                     >
                         +
                     </div>
-                </div>
+                    <Popup trigger={buttonPopup} setTrigger={setButtonPopup}></Popup></div>
+                
 
                 {/* Hidden file input */}
                 <input
