@@ -1,26 +1,28 @@
-import { withAuthInfo, useRedirectFunctions, useLogoutFunction } from '@propelauth/react';
+import { withAuthInfo, useLogoutFunction, useRedirectFunctions } from '@propelauth/react';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const YourApp = withAuthInfo((props) => {
   const logoutFunction = useLogoutFunction();
-  const { redirectToLoginPage, redirectToSignupPage, redirectToAccountPage } = useRedirectFunctions();
+  const { redirectToLoginPage, redirectToSignupPage } = useRedirectFunctions();
+  const navigate = useNavigate();
 
-  if (props.isLoggedIn) {
-    return (
-      <div>
-        <p>You are logged in as {props.user.email}</p>
-        <button onClick={() => redirectToAccountPage()}>Account</button>
-        <button onClick={() => logoutFunction(true)}>Logout</button>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <p>You are not logged in</p>
-        <button onClick={() => redirectToLoginPage()}>Login</button>
-        <button onClick={() => redirectToSignupPage()}>Signup</button>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (props.isLoggedIn) {
+      // Redirect to the closet page immediately when the user is logged in
+      navigate('/closet');
+    }
+  }, [props.isLoggedIn, navigate]); // Runs whenever props.isLoggedIn changes
+
+  return (
+    <div className="user-info-container"> {/* Wrapper div for layout */}
+      {props.isLoggedIn ? (
+        navigate('/closet')
+      ) : (
+        redirectToLoginPage()
+      )}
+    </div>
+  );
 });
 
 export default YourApp;

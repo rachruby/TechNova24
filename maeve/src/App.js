@@ -12,11 +12,11 @@ function App() {
     return (
       <Router>
         <div>
-          <UserInfo />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home />} /> 
+            <Route path="/auth" element={<UserInfo />} /> 
             <Route path="/closet" element={<Closet />} />
-              <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About />} />
             {/* 404 Not Found Route */}
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
