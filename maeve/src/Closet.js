@@ -51,25 +51,29 @@ function Closet() {
     }
 
     return (
-        <div className="bg-[url('./assets/wall.png')] w-screen h-screen bg-cover bg-center flex items-center text-white font-times italic animate-fade">
+        <div
+            className="bg-[url('./assets/wall.png')] w-screen h-screen bg-cover bg-center flex items-center text-white font-times italic animate-fade">
             {/* Back Button */}
             <Link to="/" className="absolute top-4 left-4">
-                <img src={bow} alt="Back" className="w-24 h-24 animate-wiggle" />
+                <img src={bow} alt="back" className="w-24 h-24 animate-wiggle"/>
             </Link>
 
             {/* Left Section */}
             <div className="basis-3/6 box-border h-screen p-4 border-4">
                 {selectedImage ? (
-                    <div className={`flex flex-col items-center ${animate ? 'animate-fade-down' : ''}`}>
-                        <img src={selectedImage} alt="Selected" className="my-36 h-96 w-96 p-4"/>
-                        <img src={shadow} className="w-64"/>
+                    <div>
+                        <div className={`flex flex-col items-center ${animate ? 'animate-fade-down' : ''}`}>
+                            <img src={selectedImage} alt="selected" className="my-36 h-96 w-96 p-4"/>
+                            <img src={shadow} className="w-64"/>
+                        </div>
                         <Link to="/try" className="absolute left-0 bottom-4 -ml-8">
-                            <div className="relative">
-                                <img src={bigpinkbutton} alt="Try It On" className="w-80 h-auto mix-blend-hard-light" />
-                                <span className="absolute inset-0 flex items-center justify-center font-times italic text-5xl text-white">try it on!</span>
+                            <div className={`relative ${animate ? 'animate-fade-right' : ''}`}>
+                                <img src={bigpinkbutton} alt=""
+                                     className="w-80 h-auto mix-blend-hard-light cursor-pointer hover:shadow-pink-glow"/>
+                                <span
+                                    className="absolute inset-0 flex items-center justify-center font-times italic text-5xl text-white transition-transform duration-300 hover:scale-105">try it on!</span>
                             </div>
                         </Link>
-
                     </div>
                 ) : (
                     <p></p>
@@ -77,9 +81,9 @@ function Closet() {
             </div>
 
             {/* Right Section */}
-            <div className="basis-1/2 box-border h-screen p-12 bg-plat-white bg-opacity-40 flex flex-col">
+            <div className="basis-1/2 box-border h-screen p-12 bg-plat-white bg-opacity-40 flex flex-col shadow-glow">
                 {/* Category Headers */}
-                <div className="flex justify-around text-3xl italic mb-4">
+                <div className="-ml-4 flex justify-around text-3xl italic mb-4">
                     {categories.map((category) => (
                         <div
                             key={category}
@@ -96,7 +100,8 @@ function Closet() {
                     {files[selectedCategory] && files[selectedCategory].map((url, index) => (
                         <img
                             key={index}
-                            className={`box-border m-4 h-44 w-44 p-8 cursor-pointer bg-opacity-50 ${selectedImage === url ? 'bg-plat-pink shadow-pink-glow' : 'bg-plat-white shadow-glow'}`}
+                            className={`box-border m-4 h-44 w-44 p-8 transition-transform duration-300 hover:scale-105
+                            cursor-pointer bg-opacity-50 ${selectedImage === url ? 'bg-plat-pink shadow-pink-glow' : 'bg-plat-white shadow-glow'}`}
                             src={url}
                             alt={`uploaded ${selectedCategory} ${index + 1}`}
                             onClick={() => handleImageClick(url)} // On click, set the clicked image as selected
@@ -105,7 +110,7 @@ function Closet() {
 
                     {/* "Add New" Block */}
                     <div
-                        className="box-border m-4 h-48 w-44 p-8 flex justify-center items-center
+                        className="box-border m-4 h-48 w-44 p-8 flex justify-center items-center transition-transform duration-300 hover:scale-105
                         bg-plat-white cursor-pointer border-4 border-dashed text-7xl font-bold text-plat-white mix-blend-soft-light shadow-glow bg-opacity-10"
                         onClick={handleAddNewClick}
                     >
