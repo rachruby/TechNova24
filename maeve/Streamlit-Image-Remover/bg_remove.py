@@ -4,27 +4,39 @@ import streamlit as st
 from PIL import Image
 from rembg import remove
 
-st.header("Get your clothes with transparent background!")
+st.set_page_config(layout="wide", page_title="Image Background Remover")
 
-# Upload the file
-imageUploaded = st.file_uploader("Upload your clothes image", type=["png", "jpg", "jpeg"])
+st.header("Remove background from your clothes!")
 
-# Convert the image to BytesIO so we can download it!
-def deleteBg(img):
-    buffer = BytesIO()
-    img.save(buffer, format="PNG")
-    byteIm = buffer.getvalue()
-    return byteIm
+st.sidebar.write("## Upload and download :gear:")
 
-# If we've uploaded an image, open it and remove the background!
-if imageUploaded:
-    # SHOW the uploaded image!
-    st.image(imageUploaded)
-    image = Image.open(imageUploaded)
+# Create the columns
+col1, col2 = st.columns(2)
+
+# Download the fixed image
+def convert_image(img):
+    buf = BytesIO()
+    img.save(buf, format="PNG")
+    byte_im = buf.getvalue()
+    return byte_im
+
+# Package the transform into a function
+def fix_image(upload):
+    image = Image.open(upload)
+    col1.write("Original Image :camera:")
+    col1.image(image)
+
     fixed = remove(image)
-    newImage = deleteBg(fixed)
-    # SHOW the improved image!
-    st.image(newImage)
-    st.downloadButton(
-        "Here is your clothes", newImage, "fixed.png", "image/png"
+    col2.write("Fixed Image :wrench:")
+    col2.image(fixed)
+    st.sidebar.markdown("\\n")
+    st.sidebar.download_button(
+        "Download fixed image", convert_image(fixed), "fixed.png", "image/png"
     )
+
+# Create the file uploader
+my_upload = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+
+# Fix the image!
+if my_upload is not None:
+    fix_image(upload=my_upload)

@@ -172,8 +172,8 @@ function Closet() {
                         {/* Delete Button */}
                         <button onClick={handleDeleteImage} className="absolute self-end text-white p-4 bg-opacity-50">
                             <img src={deleteicon}
-                                 className="absolute w-20 rounded hover:animate-jump cursor-pointer mt-24"
-                                 alt="delete icon" />
+                                className="absolute w-20 rounded hover:animate-jump cursor-pointer mt-24"
+                                alt="delete icon" />
                         </button>
                         <img src={spotlight} className="absolute h-full -mt-20 ml-32 mix-blend-soft-light animate-infinite animate-alternate animate-duration-1000 animate-fade" />
                         <div className={`flex flex-col items-center ${animate ? 'animate-fade-down' : ''}`}>
@@ -190,7 +190,7 @@ function Closet() {
                         <Link to="/try" className="absolute left-0 bottom-4 -ml-8">
                             <div className={`relative ${animate ? 'animate-fade-right' : ''}`}>
                                 <img src={bigpinkbutton} alt=""
-                                     className="w-80 h-auto mix-blend-hard-light cursor-pointer hover:shadow-pink-glow" />
+                                    className="w-80 h-auto mix-blend-hard-light cursor-pointer hover:shadow-pink-glow" />
                                 <span
                                     className="absolute inset-0 flex items-center justify-center font-times italic text-5xl text-white transition-transform duration-300 hover:scale-105">try it on!</span>
                             </div>
@@ -216,6 +216,7 @@ function Closet() {
                     ))}
                 </div>
 
+                <Link to="http://localhost:8501" target="_blank">bg remove please</Link>
                 <div className="flex flex-wrap overflow-y-auto max-h-full">
                     {/* Display uploaded images for the selected category */}
                     {files[selectedCategory] && files[selectedCategory].map((url, index) => (
