@@ -8,7 +8,6 @@ Problem Statement
 - Consumerism & Social Media: Trap in the rabbit hole of overconsumerism to stay in trend by excessively buying "good-deal" clothes from fast-fashion brands; financially irresponsible and harmful for the environment (contribute to landfills and ephemeral fashion)
 - Sustainability: Not knowing what's in our closets and purchasing clothes that are unnecessary and fast fashion.  
 - Body image issues: insecure about your body, cannot envision how particular clothes look on you or certain societal prejudice towards how women should/shouldn't wear certain clothing type. 
--
 
 Solution
 - An ML solution that helps scan clothing through a web camera and uses AI intelligence
