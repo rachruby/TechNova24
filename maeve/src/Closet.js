@@ -6,7 +6,7 @@ import bigpinkbutton from './assets/bigpinkbutton.png';
 import deleteicon from './assets/delete.png';
 import './Closet.css';
 import Popup from './popup';
-import { ColorExtractor } from 'react-color-extractor';
+import { withAuthInfo, useLogoutFunction, useRedirectFunctions } from '@propelauth/react';
 
 function Closet() {
     const categories = ['tops', 'bottoms', 'dresses', 'shoes'];
@@ -19,6 +19,7 @@ function Closet() {
     const [selectedImage, setSelectedImage] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('tops'); // Set "tops" as the default selected category
     const [animate, setAnimate] = useState(false); // State for animation trigger
+    const logoutFunction = useLogoutFunction();
     const [recentlyUploadedImage, setRecentlyUploadedImage] = useState(null);
     const [buttonPopup, setButtonPopup] = useState(false);
 
@@ -102,6 +103,11 @@ function Closet() {
                 ) : (
                     <p></p>
                 )}
+            </div>
+            
+            {/*logout button*/}
+            <div>
+                <button onClick={() => logoutFunction(true)}>Logout</button>
             </div>
 
             {/* Right Section */}
